@@ -1,6 +1,6 @@
 {
   "name": "react-storybook-addon-info",
-  "version": "3.3.0",
+  "version": "4.0.0",
   "description": "A React Storybook addon to show additional information for your stories.",
   "repository": {
     "type": "git",
