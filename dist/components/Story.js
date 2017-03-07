@@ -164,7 +164,7 @@ var Story = function (_React$Component) {
     value: function _renderInline() {
       return _react2.default.createElement(
         'div',
-        null,
+        { style: { padding: 20 } },
         _react2.default.createElement(
           'div',
           { style: stylesheet.infoPage },

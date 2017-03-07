@@ -40,9 +40,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var stylesheet = {
   containerStyle: {},
-  tagStyle: {
-    color: '#777'
-  }
+  tagStyle: {}
 };
 
 var Node = function (_React$Component) {

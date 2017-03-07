@@ -92,7 +92,7 @@ export default class Story extends React.Component {
 
   _renderInline() {
     return (
-      <div>
+      <div style={{padding: 20}}>
         <div style={stylesheet.infoPage}>
           <div style={stylesheet.infoBody} >
             { this._getInfoHeader() }

@@ -199,7 +199,11 @@ var PropTable = function (_React$Component) {
               _react2.default.createElement(
                 'td',
                 null,
-                row.required ? 'yes' : 'no'
+                row.required ? _react2.default.createElement(
+                  'span',
+                  { style: { color: '#42c2b3' } },
+                  'yes'
+                ) : 'no'
               ),
               _react2.default.createElement(
                 'td',

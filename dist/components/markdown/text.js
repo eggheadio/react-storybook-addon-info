@@ -116,7 +116,7 @@ var A = exports.A = function (_React$Component4) {
     key: 'render',
     value: function render() {
       var style = {
-        color: '#3498db'
+        color: '#009dcf'
       };
 
       return _react2.default.createElement(

@@ -31,7 +31,7 @@ export class UL extends React.Component {
 export class A extends React.Component {
   render() {
     const style = {
-      color: '#3498db',
+      color: '#009dcf',
     };
 
     return <a href={this.props.href} style={style}>{this.props.children}</a>;

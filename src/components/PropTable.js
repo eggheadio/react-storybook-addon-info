@@ -99,7 +99,7 @@ export default class PropTable extends React.Component {
             <tr key={row.property}>
               <td>{row.property}</td>
               <td>{row.propType || 'other'}</td>
-              <td>{row.required ? 'yes' : 'no'}</td>
+              <td>{row.required ? <span style={{color: '#42c2b3'}}>yes</span> : 'no'}</td>
               <td>{row.defaultValue === undefined ? '-' : <PropVal val={row.defaultValue} />}</td>
             </tr>
           ))}
