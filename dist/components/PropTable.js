@@ -8,6 +8,10 @@ var _values = require('babel-runtime/core-js/object/values');
 
 var _values2 = _interopRequireDefault(_values);
 
+var _toConsumableArray2 = require('babel-runtime/helpers/toConsumableArray');
+
+var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
+
 var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -42,6 +46,7 @@ var _PropVal2 = _interopRequireDefault(_PropVal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var ReactPropTypeArgs = void 0;
 var PropTypesMap = new _map2.default();
 for (var typeName in _react2.default.PropTypes) {
   if (!_react2.default.PropTypes.hasOwnProperty(typeName)) {
@@ -51,6 +56,18 @@ for (var typeName in _react2.default.PropTypes) {
   PropTypesMap.set(type, typeName);
   PropTypesMap.set(type.isRequired, typeName);
 }
+
+var SpecialPropTypes = [{ regex: /, expected an array/m, name: function name(match) {
+    return 'arrayOf';
+  } }, { regex: /, expected `object`/m, name: function name(match) {
+    return 'shape';
+  } }, { regex: /, expected one of (\[.+])/m, name: function name(match) {
+    return 'oneOf(' + match[1] + ')';
+  } }, { regex: /, expected instance of `([^`]+)`/m, name: function name(match) {
+    return 'instanceOf(' + match[1] + ')';
+  } }, { regex: /, expected an object/m, name: function name(match) {
+    return 'objectOf';
+  } }];
 
 var stylesheet = {
   propTable: {
@@ -85,8 +102,20 @@ var PropTable = function (_React$Component) {
             continue;
           }
           var typeInfo = type.propTypes[property];
-          var propType = PropTypesMap.get(typeInfo) || 'other';
-          var required = typeInfo.isRequired === undefined ? 'yes' : 'no';
+          var propType = PropTypesMap.get(typeInfo);
+          if (!propType) {
+            (function () {
+              var outcome = typeInfo.apply(undefined, (0, _toConsumableArray3.default)(ReactPropTypeArgs));
+              var match = void 0;
+              SpecialPropTypes.find(function (spt) {
+                if (match = outcome.message.match(spt.regex)) {
+                  propType = spt.name(match);
+                  return true;
+                }
+              });
+            })();
+          }
+          var required = typeInfo.isRequired === undefined;
           props[property] = { property: property, propType: propType, required: required };
         }
       }
@@ -165,12 +194,12 @@ var PropTable = function (_React$Component) {
               _react2.default.createElement(
                 'td',
                 null,
-                row.propType
+                row.propType || 'other'
               ),
               _react2.default.createElement(
                 'td',
                 null,
-                row.required
+                row.required ? 'yes' : 'no'
               ),
               _react2.default.createElement(
                 'td',
@@ -191,5 +220,15 @@ exports.default = PropTable;
 
 PropTable.displayName = 'PropTable';
 PropTable.propTypes = {
-  type: _react2.default.PropTypes.func
+  type: function type() {
+    var _React$PropTypes;
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    //This is a trick to get valid arguments to pass to React's PropTypes functions
+    ReactPropTypeArgs = args;
+    return (_React$PropTypes = _react2.default.PropTypes).func.apply(_React$PropTypes, args);
+  }
 };
