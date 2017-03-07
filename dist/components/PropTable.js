@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
 var _values = require('babel-runtime/core-js/object/values');
 
 var _values2 = _interopRequireDefault(_values);
@@ -71,13 +75,15 @@ var SpecialPropTypes = [{ regex: /, expected an array/m, name: function name(mat
 
 var stylesheet = {
   propTable: {
-    marginLeft: -10,
-    borderSpacing: '10px 5px',
-    borderCollapse: 'collapse',
-    border: '1px solid rgba(255, 255, 255, 0.3)'
+    textAlign: 'left'
+  },
+  rowHeader: {
+    textTransform: 'uppercase',
+    fontSize: 18
   },
   cell: {
-    border: '1px solid rgba(255, 255, 255, 0.3)'
+    border: '1px solid rgba(255, 255, 255, 0.3)',
+    padding: 5
   }
 };
 
@@ -154,31 +160,31 @@ var PropTable = function (_React$Component) {
 
       return _react2.default.createElement(
         'table',
-        { style: stylesheet.propTable },
+        { style: (0, _extends3.default)({}, stylesheet.propTable, stylesheet.cell) },
         _react2.default.createElement(
           'thead',
           null,
           _react2.default.createElement(
             'tr',
-            { style: { textAlign: 'left' } },
+            null,
             _react2.default.createElement(
               'th',
-              { style: stylesheet.cell },
+              { style: (0, _extends3.default)({}, stylesheet.cell, stylesheet.rowHeader) },
               'Prop'
             ),
             _react2.default.createElement(
               'th',
-              { style: stylesheet.cell },
+              { style: (0, _extends3.default)({}, stylesheet.cell, stylesheet.rowHeader) },
               'Prop Type'
             ),
             _react2.default.createElement(
               'th',
-              { style: stylesheet.cell },
+              { style: (0, _extends3.default)({}, stylesheet.cell, stylesheet.rowHeader) },
               'Required'
             ),
             _react2.default.createElement(
               'th',
-              { style: stylesheet.cell },
+              { style: (0, _extends3.default)({}, stylesheet.cell, stylesheet.rowHeader) },
               'Default'
             )
           )

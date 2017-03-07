@@ -22,13 +22,15 @@ const SpecialPropTypes = [
 
 const stylesheet = {
   propTable: {
-    marginLeft: -10,
-    borderSpacing: '10px 5px',
-    borderCollapse: 'collapse',
-    border: '1px solid rgba(255, 255, 255, 0.3)',
+    textAlign: 'left',
+  },
+  rowHeader: {
+    textTransform: 'uppercase',
+    fontSize: 18,
   },
   cell: {
     border: '1px solid rgba(255, 255, 255, 0.3)',
+    padding: 5,
   },
 };
 
@@ -89,13 +91,13 @@ export default class PropTable extends React.Component {
     });
 
     return (
-      <table style={stylesheet.propTable}>
+      <table style={{...stylesheet.propTable, ...stylesheet.cell}}>
         <thead>
-          <tr style={{textAlign: 'left'}}>
-            <th style={stylesheet.cell}>Prop</th>
-            <th style={stylesheet.cell}>Prop Type</th>
-            <th style={stylesheet.cell}>Required</th>
-            <th style={stylesheet.cell}>Default</th>
+          <tr>
+            <th style={{...stylesheet.cell, ...stylesheet.rowHeader}}>Prop</th>
+            <th style={{...stylesheet.cell, ...stylesheet.rowHeader}}>Prop Type</th>
+            <th style={{...stylesheet.cell, ...stylesheet.rowHeader}}>Required</th>
+            <th style={{...stylesheet.cell, ...stylesheet.rowHeader}}>Default</th>
           </tr>
         </thead>
         <tbody>
