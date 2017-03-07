@@ -2,3 +2,4 @@
 - Make changes
 - `yarn prepublish` to create `dist` folder
 - Commit and push
+- Run `yarn version` and then `git push && git push --tags`
