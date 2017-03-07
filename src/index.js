@@ -4,9 +4,9 @@ import { H1, H2, H3, H4, H5, H6, Code, P, UL, A, LI } from './components/markdow
 export const Story = _Story;
 
 const defaultOptions = {
-  inline: false,
-  header: true,
-  source: true,
+  inline: true,
+  header: false,
+  source: false,
   propTables: [],
 };
 

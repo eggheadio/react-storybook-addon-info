@@ -2,7 +2,6 @@ import React from 'react';
 import MTRC from 'markdown-to-react-components';
 import PropTable from './PropTable';
 import Node from './Node';
-import { baseFonts } from './theme';
 import { Pre } from './markdown';
 
 const stylesheet = {
@@ -39,7 +38,6 @@ const stylesheet = {
     zIndex: 0,
   },
   infoBody: {
-    ...baseFonts,
     fontWeight: 300,
     lineHeight: 1.45,
     fontSize: '15px',
@@ -255,7 +253,6 @@ export default class Story extends React.Component {
     const propTables = array.map(function (type, idx) {
       return (
         <div key={idx}>
-          <h2 style={stylesheet.propTableHead}>"{type.displayName || type.name}" Component</h2>
           <PropTable type={type} />
         </div>
       );
@@ -267,7 +264,6 @@ export default class Story extends React.Component {
 
     return (
       <div>
-        <h1 style={stylesheet.source.h1}>Prop Types</h1>
         {propTables}
       </div>
     );

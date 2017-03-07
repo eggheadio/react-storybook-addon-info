@@ -1,10 +1,8 @@
 import React from 'react';
-import { baseFonts } from '../theme';
 
 export class P extends React.Component {
   render() {
     const style = {
-      ...baseFonts,
       fontSize: '15px',
     };
     return <p style={style}>{this.props.children}</p>;
@@ -14,7 +12,6 @@ export class P extends React.Component {
 export class LI extends React.Component {
   render() {
     const style = {
-      ...baseFonts,
       fontSize: '15px',
     };
     return <li style={style}>{this.props.children}</li>;
@@ -24,7 +21,6 @@ export class LI extends React.Component {
 export class UL extends React.Component {
   render() {
     const style = {
-      ...baseFonts,
       fontSize: '15px',
     };
 
