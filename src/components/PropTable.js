@@ -32,6 +32,8 @@ const stylesheet = {
   cell: {
     border: '1px solid rgba(255, 255, 255, 0.3)',
     padding: 5,
+    wordWrap: 'break-word',
+    maxWidth: 300,
   },
 };
 
