@@ -73,7 +73,11 @@ var stylesheet = {
   propTable: {
     marginLeft: -10,
     borderSpacing: '10px 5px',
-    borderCollapse: 'separate'
+    borderCollapse: 'collapse',
+    border: '1px solid rgba(255, 255, 255, 0.3)'
+  },
+  cell: {
+    border: '1px solid rgba(255, 255, 255, 0.3)'
   }
 };
 
@@ -156,26 +160,26 @@ var PropTable = function (_React$Component) {
           null,
           _react2.default.createElement(
             'tr',
-            null,
+            { style: { textAlign: 'left' } },
             _react2.default.createElement(
               'th',
-              null,
-              'property'
+              { style: stylesheet.cell },
+              'Prop'
             ),
             _react2.default.createElement(
               'th',
-              null,
-              'propType'
+              { style: stylesheet.cell },
+              'Prop Type'
             ),
             _react2.default.createElement(
               'th',
-              null,
-              'required'
+              { style: stylesheet.cell },
+              'Required'
             ),
             _react2.default.createElement(
               'th',
-              null,
-              'default'
+              { style: stylesheet.cell },
+              'Default'
             )
           )
         ),
@@ -188,17 +192,17 @@ var PropTable = function (_React$Component) {
               { key: row.property },
               _react2.default.createElement(
                 'td',
-                null,
+                { style: stylesheet.cell },
                 row.property
               ),
               _react2.default.createElement(
                 'td',
-                null,
+                { style: stylesheet.cell },
                 row.propType || 'other'
               ),
               _react2.default.createElement(
                 'td',
-                null,
+                { style: stylesheet.cell },
                 row.required ? _react2.default.createElement(
                   'span',
                   { style: { color: '#42c2b3' } },
@@ -207,7 +211,7 @@ var PropTable = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
-                null,
+                { style: stylesheet.cell },
                 row.defaultValue === undefined ? '-' : _react2.default.createElement(_PropVal2.default, { val: row.defaultValue })
               )
             );

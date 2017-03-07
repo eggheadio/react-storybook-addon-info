@@ -38,12 +38,13 @@ const stylesheet = {
     zIndex: 0,
   },
   infoBody: {
-    fontWeight: 300,
     lineHeight: 1.45,
     fontSize: '15px',
   },
   infoContent: {
     marginBottom: 0,
+    fontWeight: 'bold',
+    marginTop: 10,
   },
   header: {
     h1: {

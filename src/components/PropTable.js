@@ -24,7 +24,11 @@ const stylesheet = {
   propTable: {
     marginLeft: -10,
     borderSpacing: '10px 5px',
-    borderCollapse: 'separate',
+    borderCollapse: 'collapse',
+    border: '1px solid rgba(255, 255, 255, 0.3)',
+  },
+  cell: {
+    border: '1px solid rgba(255, 255, 255, 0.3)',
   },
 };
 
@@ -87,20 +91,20 @@ export default class PropTable extends React.Component {
     return (
       <table style={stylesheet.propTable}>
         <thead>
-          <tr>
-            <th>property</th>
-            <th>propType</th>
-            <th>required</th>
-            <th>default</th>
+          <tr style={{textAlign: 'left'}}>
+            <th style={stylesheet.cell}>Prop</th>
+            <th style={stylesheet.cell}>Prop Type</th>
+            <th style={stylesheet.cell}>Required</th>
+            <th style={stylesheet.cell}>Default</th>
           </tr>
         </thead>
         <tbody>
           {array.map(row => (
             <tr key={row.property}>
-              <td>{row.property}</td>
-              <td>{row.propType || 'other'}</td>
-              <td>{row.required ? <span style={{color: '#42c2b3'}}>yes</span> : 'no'}</td>
-              <td>{row.defaultValue === undefined ? '-' : <PropVal val={row.defaultValue} />}</td>
+              <td style={stylesheet.cell}>{row.property}</td>
+              <td style={stylesheet.cell}>{row.propType || 'other'}</td>
+              <td style={stylesheet.cell}>{row.required ? <span style={{color: '#42c2b3'}}>yes</span> : 'no'}</td>
+              <td style={stylesheet.cell}>{row.defaultValue === undefined ? '-' : <PropVal val={row.defaultValue} />}</td>
             </tr>
           ))}
         </tbody>
