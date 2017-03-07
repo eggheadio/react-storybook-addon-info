@@ -45,6 +45,8 @@ const stylesheet = {
     marginBottom: 0,
     fontWeight: 'bold',
     marginTop: 10,
+    fontSize: 18,
+    padding: 20,
   },
   header: {
     h1: {
@@ -93,7 +95,7 @@ export default class Story extends React.Component {
 
   _renderInline() {
     return (
-      <div style={{padding: 20}}>
+      <div>
         <div style={stylesheet.infoPage}>
           <div style={stylesheet.infoBody} >
             { this._getInfoHeader() }

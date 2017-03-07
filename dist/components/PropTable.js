@@ -75,7 +75,8 @@ var SpecialPropTypes = [{ regex: /, expected an array/m, name: function name(mat
 
 var stylesheet = {
   propTable: {
-    textAlign: 'left'
+    textAlign: 'left',
+    padding: 20
   },
   rowHeader: {
     textTransform: 'uppercase',

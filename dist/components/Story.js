@@ -100,7 +100,9 @@ var stylesheet = {
   infoContent: {
     marginBottom: 0,
     fontWeight: 'bold',
-    marginTop: 10
+    marginTop: 10,
+    fontSize: 18,
+    padding: 20
   },
   header: {
     h1: {
@@ -165,7 +167,7 @@ var Story = function (_React$Component) {
     value: function _renderInline() {
       return _react2.default.createElement(
         'div',
-        { style: { padding: 20 } },
+        null,
         _react2.default.createElement(
           'div',
           { style: stylesheet.infoPage },

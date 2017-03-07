@@ -23,6 +23,7 @@ const SpecialPropTypes = [
 const stylesheet = {
   propTable: {
     textAlign: 'left',
+    padding: 20,
   },
   rowHeader: {
     textTransform: 'uppercase',
